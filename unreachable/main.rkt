@@ -20,7 +20,7 @@
 (define-syntax absurd!
   (syntax-parser
     [stx:id
-     (mk-err 'absurd #'stx)]))
+     (mk-err 'absurd! #'stx)]))
 
 (define-syntax strict-cond
   (syntax-parser
