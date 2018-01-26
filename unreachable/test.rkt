@@ -9,3 +9,4 @@
                              [(43) 'dead]
                              [(44) 'dead])))
 (check-exn exn:fail? (λ () absurd!))
+(check-exn exn:fail? (λ () ???))
