@@ -48,6 +48,9 @@
 
 (define-syntax assert
   (syntax-parser
-    [(~and stx (_ x:expr (~optional p?:expr #:defaults ([p? #'values]))))
+    [(~and stx (_ x:expr))
+     (with-syntax ([err (mk-err 'assert "assertion not true" #'stx)])
+       #'(if x x err))]
+    [(~and stx (_ x:expr p?:expr))
      (with-syntax ([err (mk-err 'assert "assertion not true" #'stx)])
        #'(if (p? x) x err))]))
