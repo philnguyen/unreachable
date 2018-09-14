@@ -2,8 +2,10 @@
 
 (provide absurd!
          (rename-out [strict-cond cond]
-                     [strict-case case])
-         ???)
+                     [strict-case case]
+                     [absurd! !!!])
+         ???
+         assert)
 
 (require (for-syntax racket/base
                      racket/syntax
@@ -44,3 +46,8 @@
     [stx:id
      (mk-err '??? "reached placeholder" #'stx)]))
 
+(define-syntax assert
+  (syntax-parser
+    [(_ p:expr)
+     (with-syntax ([err (mk-err 'assert "assertion not true" #'p)])
+       #'(unless p err))]))
