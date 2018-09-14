@@ -10,5 +10,3 @@
                              [(44) 'dead])))
 (check-exn exn:fail? (λ () absurd!))
 (check-exn exn:fail? (λ () ???))
-(check-exn exn:fail? (λ () (assert (= 1 2))))
-(check-exn exn:fail? (λ () (assert "" integer?)))
