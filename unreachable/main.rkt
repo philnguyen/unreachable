@@ -4,8 +4,7 @@
          (rename-out [strict-cond cond]
                      [strict-case case]
                      [absurd! !!!])
-         ???
-         assert)
+         ???)
 
 (require (for-syntax racket/base
                      racket/syntax
@@ -45,12 +44,3 @@
   (syntax-parser
     [stx:id
      (mk-err '??? "reached placeholder" #'stx)]))
-
-(define-syntax assert
-  (syntax-parser
-    [(~and stx (_ x:expr))
-     (with-syntax ([err (mk-err 'assert "assertion not true" #'stx)])
-       #'(if x x err))]
-    [(~and stx (_ x:expr p?:expr))
-     (with-syntax ([err (mk-err 'assert "assertion not true" #'stx)])
-       #'(if (p? x) x err))]))
