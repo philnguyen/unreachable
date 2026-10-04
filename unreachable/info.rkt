@@ -2,7 +2,8 @@
 
 (define collection "unreachable")
 
-(define deps '("base"))
+(define deps '("rackunit-lib"
+               "base"))
 
 (define pkg-desc "Utilities for expressing expectedly unreachable code")
 
